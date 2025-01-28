@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Employee List</h2>
+    <a routerLink="/add-employee" class="btn btn-success mb-3">
+        <i class="fas fa-plus-circle"></i> Add Employee
+    </a>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.email}}</td>
+                <td class="text-center">
+                    <button class="btn btn-info me-2" >
+                        <i class="fas fa-edit"></i> Update
+                    </button>
+                    <button class="btn btn-danger" >
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
