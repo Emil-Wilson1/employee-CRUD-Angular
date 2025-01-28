@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-employee-list',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
 })
