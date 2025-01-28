@@ -30,11 +30,28 @@ export class EmployeeListComponent {
     this.router.navigate(['/update-employee', id]);
 }
 
+
 deleteEmployee(id: number): void {
+  const confirmDelete = window.confirm('Are you sure you want to delete this employee?');
+
+  if (confirmDelete) {
+      this.employees = this.employees.filter(employee => employee.id !== id);
+
       this.employeeService.deleteEmployee(id).subscribe({
-          next: () => this.loadEmployees(),
-          error: (e) => console.error(e)
+          next: (response: string) => {
+              console.log(response); 
+          },
+          error: (e) => {
+              console.error('Error deleting employee:', e);
+          }
       });
+  } else {
+      console.log('Employee deletion cancelled');
+  }
 }
+
+
+
+
 
 }
