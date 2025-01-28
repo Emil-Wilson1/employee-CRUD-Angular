@@ -25,4 +25,16 @@ export class EmployeeListComponent {
       error:(err)=>console.log(err)
     })
   }
+
+  updateEmployee(id: number): void {
+    this.router.navigate(['/update-employee', id]);
+}
+
+deleteEmployee(id: number): void {
+      this.employeeService.deleteEmployee(id).subscribe({
+          next: () => this.loadEmployees(),
+          error: (e) => console.error(e)
+      });
+}
+
 }
